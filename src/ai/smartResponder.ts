@@ -17,14 +17,15 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
 *Harsh Apex Digital Solutions* වෙත සාදරයෙන් පිළිගනිමු! 🚀
 🌐 _Official Website:_ https://harshapex.com.lk
 
-_ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණයෙන් ඉහළටම ඔසවා තබන ඔබේ විශ්වාසනීය ඩිජිටල් සහකරු_ ⚡
+💡 *ඔබට අවශ්‍ය ඕනෑම Software එකක් හෝ Digital පහසුකමක් ඉතා සාධාරණ මිල ගණන් යටතේ අප වෙතින් නිර්මාණය කරගත හැක!* ⚡
 
 අපගේ ප්‍රධාන සේවාවන්:
 ━━━━━━━━━━━━━━━━━
-✅ *Websites & Online Stores* (රු. 15,000 සිට) 🌐
+✅ *Websites & E-Commerce* (රු. 15,000 සිට) 🌐
 ✅ *24/7 WhatsApp AI Sales Bots* (රු. 22,000) 🤖
 ✅ *Custom POS & Billing Systems* (රු. 38,000) 💻
 ✅ *Mobile Apps (iOS & Android)* 📱
+✅ *Bespoke Custom Software Solutions* ⚙️
 ━━━━━━━━━━━━━━━━━
 
 💬 _ඔබට අවශ්‍ය සේවාවේ අංකය පහතින් තෝරා එවන්න:_
@@ -33,13 +34,14 @@ _ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණ�
 2️⃣ *WhatsApp AI Sales Bot*
 3️⃣ *Custom POS Billing System*
 4️⃣ *Mobile App Development*
-5️⃣ *සම්පූර්ණ මිල ගණන් (Price List)*
-🌐 *6. අපගේ Website එක සහ Portfolio බැලීමට*`;
+5️⃣ *Bespoke Custom Software (ඕනෑම Software එකක්)*
+6️⃣ *සම්පූර්ණ මිල ගණන් (Price List)*
+🌐 *7. අපගේ Website එක සහ Portfolio බැලීමට*`;
   }
 
-  // 2. Price / Pricing / Packages / Cost / Number '5'
+  // 2. Price / Pricing / Packages / Cost / Number '6'
   if (
-    clean === '5' || clean.includes('price') || clean.includes('pricing') ||
+    clean === '6' || clean.includes('price') || clean.includes('pricing') ||
     clean.includes('mila') || clean.includes('gaana') || clean.includes('ganan') ||
     clean.includes('kiyada') || clean.includes('package') || clean.includes('cost') ||
     clean.includes('rates') || clean.includes('මිල') || clean.includes('ගණන්')
@@ -63,13 +65,14 @@ _ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණ�
 • *Cloud POS & Billing System:* Rs. 38,000
   _(Shops, Restaurants & Supermarkets)_
 
-📱 *Mobile App Development:*
-• *Custom iOS & Android App:* Rs. 48,000 සිට
+📱 *Mobile Apps & Custom Software:*
+• *Custom Apps & Systems:* රු. 35,000 සිට ඔබගේ අවශ්‍යතාවය අනුව
 
 ━━━━━━━━━━━━━━━━━
-📌 _නොමිලේ 1 Year Support & 95+ Google SEO Optimization හිමිවේ._
+💡 _ඔබට අවශ්‍ය ඕනෑම Software එකක් ඔබගේ Budget එකට අනුව සාදාගත හැක._
+📌 _නොමිලේ 1 Year Support & Maintenance හිමිවේ._
 
-👉 *වැඩිදුර විස්තර සඳහා අවශ්‍ය සේවාවේ අංකය (1, 2, 3, 4) එවන්න.* 🚀`;
+👉 *වැඩිදුර විස්තර සඳහා අවශ්‍ය සේවාවේ අංකය එවන්න.* 🚀`;
   }
 
   // 3. Website Inquiries / Number 1
@@ -172,9 +175,30 @@ Flutter සහ React Native නවීන තාක්ෂණයෙන් යු�
 👉 _ඔබගේ App Idea එක ගැන Harshan මහතා සමඟ සාකච්ඡා කිරීමට ඔබගේ දුරකථන අංකය ලබාදෙන්න._ 🤝📱`;
   }
 
-  // 7. Website Portfolio / Number 6
+  // 7. Custom Software Solutions / Number 5
   if (
-    clean === '6' || clean.includes('harshapex.com.lk') || clean.includes('site') ||
+    clean === '5' || clean.includes('software') || clean.includes('custom') ||
+    clean.includes('system') || clean.includes('erp') || clean.includes('hotel') ||
+    clean.includes('hospital') || clean.includes('school') || clean.includes('management')
+  ) {
+    return `⚙️ *BESPOKE CUSTOM SOFTWARE & DIGITAL SOLUTIONS*
+━━━━━━━━━━━━━━━━━
+
+💡 *ඔබගේ ව්‍යාපාරයට අවශ්‍ය ඕනෑම Custom Software එකක් හෝ Digital පහසුකමක් ඔබගේ Budget එකට ගැලපෙන ලෙස අප විසින් නිර්මාණය කර දෙනු ලැබේ!*
+
+🔹 Hotel & Tourism Booking Systems
+🔹 School, College & Institute Management Systems
+🔹 Warehouse, Factory & Inventory Management
+🔹 Clinic, Hospital & Pharmacy Management
+🔹 Custom Web Portals & Cloud Dashboards
+
+━━━━━━━━━━━━━━━━━
+🤝 _ඔබගේ අවශ්‍යතාවය අනුව මිල ගණන් සහ තාක්ෂණික උපදෙස් ලබාගැනීමට Chamilka Harshan මහතාට ඔබව සම්බන්ධ කරදීමට ඔබගේ දුරකථන අංකය ලබාදෙන්න._ 📞`;
+  }
+
+  // 8. Website Portfolio / Number 7
+  if (
+    clean === '7' || clean.includes('harshapex.com.lk') || clean.includes('site') ||
     clean.includes('portfolio') || clean.includes('work') || clean.includes('sample')
   ) {
     return `🌐 *HARSH APEX OFFICIAL WEBSITE & PORTFOLIO*
@@ -192,7 +216,7 @@ https://harshapex.com.lk
 👉 _අපගේ වෙබ් අඩවියට පිවිස සජීවීව වැඩ (Work & Portfolio) නරඹන්න!_ 🚀`;
   }
 
-  // 8. Bank Details / Payment / Advance / Transfer / Slip
+  // 9. Bank Details / Payment / Advance / Transfer / Slip
   if (
     clean.includes('bank') || clean.includes('account') || clean.includes('acc') ||
     clean.includes('transfer') || clean.includes('payment') || clean.includes('slip') ||
@@ -213,7 +237,7 @@ https://harshapex.com.lk
 📸 _ගෙවූ පසු Slip පතේ ඡායාරූපයක් (Photo/Screenshot) මෙතැනට එවන්න._ ✅`;
   }
 
-  // 9. Contact / Phone / Location / Harshan / Address
+  // 10. Contact / Phone / Location / Harshan / Address
   if (
     clean.includes('contact') || clean.includes('phone') || clean.includes('number') ||
     clean.includes('call') || clean.includes('location') || clean.includes('galle') ||
@@ -234,7 +258,7 @@ https://harshapex.com.lk
 🤝 _Harshan මහතා සමඟ සෘජුවම දුරකථනයෙන් සාකච්ඡා කිරීමට ඔබගේ දුරකථන අංකය ලබාදෙන්න._ 📞`;
   }
 
-  // 10. Tamil Language Pricing & Inquiry
+  // 11. Tamil Language Pricing & Inquiry
   if (
     clean.includes('விலை') || clean.includes('வணக்கம்') || clean.includes('இணையதளம்') ||
     clean.includes('விவரம்') || clean.includes('tamil')
@@ -243,6 +267,8 @@ https://harshapex.com.lk
 *Harsh Apex Digital Solutions*
 🌐 https://harshapex.com.lk
 
+💡 *உங்களுக்கு தேவையான எந்தவொரு Custom Software அல்லது Digital சேவையையும் செய்து தருகிறோம்!*
+
 எங்கள் முக்கிய சலுகைகள்:
 ━━━━━━━━━━━━━━━━━
 🌐 *1. Basic Website:* Rs. 15,000 மட்டும் 🔥
@@ -250,9 +276,9 @@ https://harshapex.com.lk
 🛒 *3. E-Commerce Store:* Rs. 55,000
 🤖 *4. WhatsApp AI Bot:* Rs. 22,000
 💻 *5. Cloud POS System:* Rs. 38,000
-📱 *6. Mobile Apps:* Rs. 48,000 முதல்
+📱 *6. Custom Software / Apps:* உங்கள் தேவைக்கேற்ப
 ━━━━━━━━━━━━━━━━━
-👉 _மேலதிக விவரங்களுக்கு எண்ணை (1, 2, 3, 4) இங்கே பதிவிடவும்._ ✨`;
+👉 _மேலதிக விவரங்களுக்கு எண்ணை இங்கே பதிவிடவும்._ ✨`;
   }
 
   return null;
