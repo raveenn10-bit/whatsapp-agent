@@ -22,7 +22,6 @@
   "author": "Harsh Apex Digital Solutions",
   "license": "ISC",
   "dependencies": {
-    "@google/genai": "^0.1.2",
     "@google/generative-ai": "^0.24.0",
     "@whiskeysockets/baileys": "^6.7.19",
     "cors": "^2.8.5",
