@@ -5,7 +5,7 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
   const clean = text.toLowerCase().trim();
   const bank = config.business.bankDetails;
 
-  // 1. Greetings (Hi, Hello, Hey, Ayubowan, Vanakkam, Kohomada)
+  // 1. Greetings (Hi, Hello, Hey, Ayubowan, Vanakkam, Kohomada) - Formatted like the 1st Image!
   if (
     clean === 'hi' || clean === 'hello' || clean === 'hey' || clean === 'hlo' ||
     clean === 'hy' || clean === 'hii' || clean === 'hiii' || clean === 'හායි' ||
@@ -16,26 +16,34 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     return `*ආයුබෝවන්!* 🙏✨
 *Harsh Apex Digital Solutions* වෙත සාදරයෙන් පිළිගනිමු! 🚀
 
-අපගේ ප්‍රධාන සේවාවන්:
+_ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණයෙන් ඉහළටම ඔසවා තබන ඔබේ විශ්වාසනීය ඩිජිටල් සහකරු_ ⚡
+
+අපගේ සේවාවන්:
 ━━━━━━━━━━━━━━━━━
-🌐 *1. Websites & E-Commerce* (රු. 15,000 සිට)
-🤖 *2. 24/7 WhatsApp AI Bots* (රු. 22,000 සිට)
-💻 *3. Smart Cloud POS Systems* (රු. 38,000 සිට)
-📱 *4. Meta & TikTok Ads Marketing* (රු. 18,000 සිට)
-🎨 *5. Logo & Graphic Design* (රු. 10,000 සිට)
+✅ *Websites & Online Stores* (රු. 15,000 සිට) 🌐
+✅ *24/7 WhatsApp AI Sales Bots* 🤖
+✅ *Smart Cloud POS & Billing Systems* 💻
+✅ *Targeted Meta & TikTok Advertising* 📱
+✅ *Professional Logo & Branding Design* 🎨
 ━━━━━━━━━━━━━━━━━
 
-👉 _ඔබට අවශ්‍ය සේවාවේ අංකය (උදා: *1* හෝ *2*) හෝ නම මෙතැනට එවන්න._ 😊`;
+💬 _ඔබට අවශ්‍ය සේවාවේ අංකය පහතින් තෝරා එවන්න:_
+
+1️⃣ *Websites & E-Commerce*
+2️⃣ *WhatsApp AI Bot*
+3️⃣ *POS System*
+4️⃣ *Meta Marketing Ads*
+5️⃣ *සම්පූර්ණ මිල ගණන් (Price List)*`;
   }
 
-  // 2. Price / Pricing / Packages / Cost / Number '1' or 'price'
+  // 2. Price / Pricing / Packages / Cost / Number '5'
   if (
-    clean.includes('price') || clean.includes('pricing') || clean.includes('mila') ||
-    clean.includes('gaana') || clean.includes('ganan') || clean.includes('kiyada') ||
-    clean.includes('package') || clean.includes('cost') || clean.includes('rates') ||
-    clean.includes('මිල') || clean.includes('ගණන්')
+    clean === '5' || clean.includes('price') || clean.includes('pricing') ||
+    clean.includes('mila') || clean.includes('gaana') || clean.includes('ganan') ||
+    clean.includes('kiyada') || clean.includes('package') || clean.includes('cost') ||
+    clean.includes('rates') || clean.includes('මිල') || clean.includes('ගණන්')
   ) {
-    return `🔥 *HARSH APEX - PRICE LIST* 🔥
+    return `🔥 *HARSH APEX - SPECIAL PRICE LIST* 🔥
 ━━━━━━━━━━━━━━━━━
 
 🌐 *Web Development:*
@@ -59,7 +67,7 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
 ━━━━━━━━━━━━━━━━━
 📌 _නොමිලේ 1 Year Support & Maintenance හිමිවේ._
 
-👉 *වැඩිදුර විස්තර සඳහා අවශ්‍ය සේවාවේ නම එවන්න.* 🚀`;
+👉 *වැඩිදුර විස්තර සඳහා අවශ්‍ය සේවාවේ අංකය (1, 2, 3, 4) එවන්න.* 🚀`;
   }
 
   // 3. Website Inquiries / Number 1
@@ -68,7 +76,7 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     clean.includes('e-commerce') || clean.includes('ecommerce') ||
     clean.includes('online store') || clean.includes('වෙබ්')
   ) {
-    return `🌐 *WEBSITE PACKAGES*
+    return `🌐 *WEBSITE & E-COMMERCE PACKAGES*
 ━━━━━━━━━━━━━━━━━
 
 *1️⃣ Basic Starter Web - Rs. 15,000* 🔥
@@ -97,16 +105,18 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     clean === '2' || clean.includes('bot') || clean.includes('whatsapp') ||
     clean.includes('agent') || clean.includes('ai') || clean.includes('auto reply')
   ) {
-    return `🤖 *24/7 WHATSAPP AI AGENT*
+    return `🤖 *24/7 WHATSAPP AI SALES AGENT*
 ━━━━━━━━━━━━━━━━━
 💵 *මිල: Rs. 22,000 පමණි*
 
-ඔබ නිදාගෙන සිටින විටත් WhatsApp එකට එන පාරිභෝගිකයන්ට ක්ෂණිකව replies ලබාදෙයි! ⚡
+Tired of customers waiting for replies? ⚡
+ඔබ නිදාගෙන සිටින විටත් WhatsApp එකට එන පාරිභෝගිකයන්ට ක්ෂණිකව replies ලබාදෙයි!
 
-✅ *සිංහල, Singlish, Tamil & English* භාෂා 4න්ම කතා කිරීම
-✅ *Bank Slip Verification:* Customer එවනා Receipts කියවා Confirm කිරීම
-✅ *Automated Orders & Leads:* විස්තර ස්වයංක්‍රීයව Save කරගැනීම
-✅ *Live Web Admin Dashboard:* Chats සහ Orders බලාගැනීමට
+✅ *Talks in Sinhala, English, Tamil & Singlish* 🌍
+✅ *Chats like a human – not a bot* 🤖
+✅ *Bank Slip & Receipt Verification* 📸
+✅ *Keeps customer details in one place* 📊
+✅ *Takes orders & manages sales for you* 🛒
 
 ━━━━━━━━━━━━━━━━━
 👉 _ඔබේ WhatsApp එකටත් Agent කෙනෙක් හදාගැනීමට අවශ්‍ය නම් පවසන්න._ 📱🚀`;
@@ -117,7 +127,7 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     clean === '3' || clean.includes('pos') || clean.includes('billing') ||
     clean.includes('inventory') || clean.includes('stock') || clean.includes('bill')
   ) {
-    return `💻 *SMART CLOUD POS SYSTEM*
+    return `💻 *SMART CLOUD POS & BILLING SYSTEM*
 ━━━━━━━━━━━━━━━━━
 💵 *මිල: Rs. 38,000*
 
@@ -133,7 +143,28 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 👉 _Demo එකක් බලාගැනීමට අවශ්‍ය නම් අපට පවසන්න._ 📊`;
   }
 
-  // 6. Bank Details / Payment / Advance / Transfer / Slip
+  // 6. Meta / Social Media Marketing / Number 4
+  if (
+    clean === '4' || clean.includes('meta') || clean.includes('ad') ||
+    clean.includes('ads') || clean.includes('marketing') || clean.includes('facebook') ||
+    clean.includes('tiktok')
+  ) {
+    return `📱 *TARGETED META & TIKTOK ADS MARKETING*
+━━━━━━━━━━━━━━━━━
+💵 *ගාස්තුව: Rs. 18,000 / මසකට*
+
+ඔබේ ව්‍යාපාරයට කෙලින්ම WhatsApp Leads සහ Sales ගෙන දෙන Targeted Ad Campaigns:
+
+✅ Targeted Audience Research (Sri Lanka & Worldwide)
+✅ Custom Graphic Ad Creatives & Video Ads
+✅ WhatsApp Direct Message Ads Setup
+✅ Weekly Analytics & Campaign Optimization
+
+━━━━━━━━━━━━━━━━━
+👉 _Ads පටන් ගැනීමට අවශ්‍ය නම් පවසන්න._ 🚀`;
+  }
+
+  // 7. Bank Details / Payment / Advance / Transfer / Slip
   if (
     clean.includes('bank') || clean.includes('account') || clean.includes('acc') ||
     clean.includes('transfer') || clean.includes('payment') || clean.includes('slip') ||
@@ -154,7 +185,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 📸 _ගෙවූ පසු Slip පතේ ඡායාරූපයක් (Photo/Screenshot) මෙතැනට එවන්න._ ✅`;
   }
 
-  // 7. Contact / Phone / Location / Harshan / Address
+  // 8. Contact / Phone / Location / Harshan / Address
   if (
     clean.includes('contact') || clean.includes('phone') || clean.includes('number') ||
     clean.includes('call') || clean.includes('location') || clean.includes('galle') ||
@@ -174,7 +205,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 🤝 _Harshan මහතා සමඟ සෘජුවම දුරකථනයෙන් සාකච්ඡා කිරීමට ඔබගේ දුරකථන අංකය ලබාදෙන්න._ 📞`;
   }
 
-  // 8. Tamil Language Pricing & Inquiry
+  // 9. Tamil Language Pricing & Inquiry
   if (
     clean.includes('விலை') || clean.includes('வணக்கம்') || clean.includes('இணையதளம்') ||
     clean.includes('விவரம்') || clean.includes('tamil')
@@ -190,7 +221,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 🤖 *4. WhatsApp AI Bot:* Rs. 22,000
 💻 *5. Cloud POS System:* Rs. 38,000
 ━━━━━━━━━━━━━━━━━
-👉 _மேலதிக விவரங்களுக்கு உங்கள் தேவையை இங்கே பதிவிடவும்._ ✨`;
+👉 _மேலதிக விவரங்களுக்கு எண்ணை (1, 2, 3, 4) இங்கே பதிவிடவும்._ ✨`;
   }
 
   return null;
