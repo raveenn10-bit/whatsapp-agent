@@ -6,6 +6,8 @@ import makeWASocket, {
   Browsers
 } from '@whiskeysockets/baileys';
 import pino from 'pino';
+import fs from 'fs';
+import path from 'path';
 import { Boom } from '@hapi/boom';
 import { config } from '../config.js';
 import { qrManager } from './qrManager.js';
@@ -17,25 +19,25 @@ export class WhatsAppClient {
   private reconnectTimer: NodeJS.Timeout | null = null;
 
   public async initialize() {
-    if (this.isConnecting) {
-      return;
-    }
+    if (this.isConnecting) return;
     this.isConnecting = true;
 
-    // Clear any pending reconnect timers
     if (this.reconnectTimer) {
       clearTimeout(this.reconnectTimer);
       this.reconnectTimer = null;
     }
 
     try {
-      console.log('🚀 Initializing WhatsApp Agent Gateway (High Stability Mode)...');
+      console.log('🚀 Initializing WhatsApp Agent Gateway (Persistent Mode for 0770663154)...');
+      if (!fs.existsSync(config.authDir)) {
+        fs.mkdirSync(config.authDir, { recursive: true });
+      }
+
       const { state, saveCreds } = await useMultiFileAuthState(config.authDir);
       const { version } = await fetchLatestBaileysVersion().catch(() => ({
         version: [2, 3000, 1015901307] as [number, number, number]
       }));
 
-      // If an existing socket exists, gracefully end it before creating a new one
       if (this.sock) {
         try {
           this.sock.end(undefined);
@@ -46,7 +48,7 @@ export class WhatsAppClient {
       this.sock = makeWASocket({
         version,
         logger: pino({ level: 'silent' }),
-        printQRInTerminal: false,
+        printQRInTerminal: true,
         auth: state,
         browser: Browsers.windows('Desktop'),
         syncFullHistory: false,
@@ -57,14 +59,13 @@ export class WhatsAppClient {
         markOnlineOnConnect: true
       });
 
-      // Save credentials whenever updated
       this.sock.ev.on('creds.update', saveCreds);
 
-      // Connection lifecycle handler
       this.sock.ev.on('connection.update', (update) => {
         const { connection, lastDisconnect, qr } = update;
 
         if (qr) {
+          console.log('📱 Fresh WhatsApp Pairing QR Code Generated!');
           qrManager.setQR(qr);
         }
 
@@ -72,31 +73,39 @@ export class WhatsAppClient {
           this.isConnecting = false;
           const userJid = this.sock?.user?.id || '';
           const phone = userJid.split(':')[0] || userJid.split('@')[0];
-          console.log(`✅ WhatsApp Gateway Connected & Active for +${phone}`);
+          console.log(`✅ WhatsApp Gateway Permanently Connected to +${phone} (0770663154)`);
           qrManager.setConnected(phone);
         }
 
         if (connection === 'close') {
           this.isConnecting = false;
           const statusCode = (lastDisconnect?.error as Boom)?.output?.statusCode;
-          const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
+          const isLoggedOut = statusCode === DisconnectReason.loggedOut || statusCode === 401;
           const reason = (lastDisconnect?.error as Error)?.message || `Code ${statusCode}`;
 
-          console.warn(`⚠️ WhatsApp connection closed: ${reason} (Code: ${statusCode})`);
+          console.warn(`⚠️ Connection closed: ${reason} (Code: ${statusCode})`);
           qrManager.setDisconnected(reason);
 
-          if (shouldReconnect) {
-            console.log('🔄 Re-establishing stable WhatsApp connection in 3 seconds...');
-            this.reconnectTimer = setTimeout(() => {
-              this.initialize();
-            }, 3000);
+          if (isLoggedOut) {
+            console.log('🔄 Cleaning stale session and generating fresh QR for 0770663154...');
+            try {
+              if (fs.existsSync(config.authDir)) {
+                const files = fs.readdirSync(config.authDir);
+                for (const file of files) {
+                  fs.unlinkSync(path.join(config.authDir, file));
+                }
+              }
+            } catch (err) {
+              console.warn('Auth cleanup notice:', err);
+            }
+            this.reconnectTimer = setTimeout(() => this.initialize(), 2000);
           } else {
-            console.error('❌ WhatsApp logged out. Session expired. Please re-scan QR.');
+            console.log('🔄 Auto-reconnecting WhatsApp session in 3 seconds...');
+            this.reconnectTimer = setTimeout(() => this.initialize(), 3000);
           }
         }
       });
 
-      // Handle incoming messages
       this.sock.ev.on('messages.upsert', async ({ messages, type }) => {
         if (type !== 'notify') return;
 
@@ -104,13 +113,13 @@ export class WhatsAppClient {
           try {
             await handleIncomingMessage(this.sock!, msg);
           } catch (err) {
-            console.error('Error handling message:', err);
+            console.error('Error handling incoming message:', err);
           }
         }
       });
 
     } catch (err) {
-      console.error('Failed to initialize WhatsApp socket:', err);
+      console.error('WhatsApp socket error:', err);
       this.isConnecting = false;
       this.reconnectTimer = setTimeout(() => this.initialize(), 4000);
     }
