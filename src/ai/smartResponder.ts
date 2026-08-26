@@ -5,9 +5,8 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
   const clean = text.toLowerCase().trim();
   const b = config.business.business;
   const bank = config.business.bankDetails;
-  const services = db.getServices();
 
-  // 1. Greetings (Hi, Hello, Hey, Ayubowan, Vanakkam, Kohomada, Haai)
+  // 1. Greetings (Hi, Hello, Hey, Ayubowan, Vanakkam, Kohomada)
   if (
     clean === 'hi' || clean === 'hello' || clean === 'hey' || clean === 'hlo' ||
     clean === 'hy' || clean === 'hii' || clean === 'hiii' || clean === 'හායි' ||
@@ -18,16 +17,15 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     return `ආයුබෝවන්! 🙏✨
 **Harsh Apex Digital Solutions** වෙත ඔබව සාදරයෙන් පිළිගනිමු! 🚀
 
-අපි ඔබගේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණයෙන් ඉහළටම ඔසවා තැබීමට පහත සේවාවන් සපයන්නෙමු:
+අපි ඕනෑම Budget එකකට ගැලපෙන ලෙස ඉතා සාධාරණ මිල ගණන් යටතේ උසස්ම ඩිජිටල් සේවාවන් සපයන්නෙමු:
 
-🌐 **1. Website Designing & Development** (Next.js & WordPress නවීන වෙබ් අඩවි)
-🛒 **2. E-Commerce Online Stores** (Card Payments & Online Ordering සහිතව)
-🤖 **3. 24/7 WhatsApp AI Sales Agents & Bots** (සිංහල / දෙමළ / English)
-💻 **4. Smart Cloud POS & Billing Systems** (Shops & Restaurants සඳහා)
-📱 **5. Mobile App Development** (iOS & Android Apps)
-🎨 **6. UI/UX, Logo & Social Media Marketing**
+🌐 **1. Websites & E-Commerce** (ආරම්භක මිල **රු. 15,000 සිට**)
+🤖 **2. 24/7 WhatsApp AI Sales Bots** (**රු. 22,000 සිට**)
+💻 **3. Smart Cloud POS & Billing Systems** (**රු. 38,000 සිට**)
+📱 **4. Meta & TikTok Ads / Marketing** (**රු. 18,000 සිට**)
+🎨 **5. Logo & Graphic Design** (**රු. 10,000 සිට**)
 
-ඔබට අවශ්‍ය සේවාව හෝ මිල ගණන් (Price List) දැනගැනීමට අවශ්‍ය නම් පවසන්න! 😊`;
+ඔබට අවශ්‍ය සේවාව කුමක්ද? මිල ගණන් සහ විස්තර ලබාගැනීමට පවසන්න! 😊`;
   }
 
   // 2. Price / Pricing / Packages / Cost / Kohomada Mila
@@ -37,66 +35,56 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     clean.includes('package') || clean.includes('cost') || clean.includes('rates') ||
     clean.includes('මිල') || clean.includes('ගණන්')
   ) {
-    return `🔥 **Harsh Apex Digital Solutions - නිල සේවා සහ මිල ගණන් (Official Price List):** 🔥
+    return `🔥 **Harsh Apex Digital Solutions - Budget-Friendly Price List:** 🔥
 
-🌐 **1. Corporate Business Website**
-   💵 ආරම්භක මිල: **Rs. 35,000**
-   * Free .COM / .LK Domain & High-Speed Hosting (1 Year)
-   * 100% Mobile & SEO Optimized | 5–7 දිනකින් Delivery
+🌐 **Website Development Packages:**
+   * 🔹 **Starter / Basic Website:** **Rs. 15,000** *(Single Page / Mobile Optimized / Fast Delivery)*
+   * 🔹 **Corporate Business Website:** **Rs. 32,000** *(Multi-page + Free .COM Domain & 1 Year Hosting + SEO)*
+   * 🔹 **Full E-Commerce Store:** **Rs. 55,000** *(Payment Gateways + Unlimited Products + WhatsApp Alerts)*
 
-🛒 **2. Full E-Commerce Online Store**
-   💵 ආරම්භක මිල: **Rs. 60,000**
-   * Online Payment Gateway (Visa/Master/Koko/Bank)
-   * Unlimited Products & Order Management System
+🤖 **WhatsApp AI Automation & Bots:**
+   * 🔹 **24/7 Smart Sales & Support Bot:** **Rs. 22,000** *(Sinhala/Tamil/English + Bank Slip Verification)*
 
-🤖 **3. 24/7 WhatsApp AI Sales Agent**
-   💵 ආරම්භක මිල: **Rs. 25,000**
-   * සිංහල, Singlish, Tamil & English භාෂා 4න්ම කතා කිරීම
-   * Bank Slip / Receipt Verification & Live Web Dashboard
+💻 **Software & POS Systems:**
+   * 🔹 **Cloud POS & Billing System:** **Rs. 38,000** *(Barcode billing, Stock control, WhatsApp Invoices)*
 
-💻 **4. Smart Cloud POS & Billing System**
-   💵 ආරම්භක මිල: **Rs. 45,000**
-   * Barcode Billing, Stock Control & WhatsApp Invoices
+📱 **Marketing & Branding:**
+   * 🔹 **Social Media Meta Ads Campaign:** **Rs. 18,000/mo**
+   * 🔹 **Logo & Social Media Branding Pack:** **Rs. 10,000**
 
-📱 **5. Social Media Marketing & Meta Ads**
-   💵 මාසිකව: **Rs. 25,000**
-   * Targeted Facebook, Instagram & TikTok Ad Campaigns
+📌 *සියලුම Packages සඳහා නොමිලේ 1 Year Support & Consultation හිමිවේ.*
 
-🎨 **6. Branding & Logo Design Pack**
-   💵 මිල: **Rs. 15,000**
-   * Premium Logo + 15 Graphic Post Designs
-
-📌 *සෑම සේවාවක් සඳහාම නොමිලේ Maintenance & Support හිමිවේ.*
-
-ඔබේ ව්‍යාපාරයට වඩාත්ම ගැලපෙන සේවාව කුමක්ද? වැඩිදුර විස්තර සඳහා පවසන්න! 🚀`;
+ඔබට ගැලපෙන Package එක තෝරාගැනීමට අවශ්‍ය නම් අපට පවසන්න! 🚀`;
   }
 
-  // 3. Website / Web Design / Development / Nextjs / WordPress
+  // 3. Website / Web Design / E-Commerce
   if (
     clean.includes('web') || clean.includes('website') || clean.includes('e-commerce') ||
     clean.includes('ecommerce') || clean.includes('online store') || clean.includes('වෙබ්')
   ) {
-    return `🌐 **Harsh Apex Website Development Services:**
+    return `🌐 **Harsh Apex Website Designing Packages:**
 
-අපි ලොව නවීනතම **Next.js 16, React & Tailwind CSS** තාක්ෂණයෙන් Google හි #1 Rank වන, සුපිරි වේගවත් වෙබ් අඩවි නිර්මාණය කර දෙන්නෙමු:
+අපි ඔබගේ අවශ්‍යතාවය සහ Budget එක අනුව Packages 3ක් යටතේ Websites නිර්මාණය කර දෙන්නෙමු:
 
-🔹 **Business Corporate Website (Rs. 35,000):**
-   * Single & Multi-page modern designs
-   * Free 1 Year Domain & Cloud Server Hosting
-   * WhatsApp Direct Chat, Inquiry Forms & SEO
+1️⃣ **Basic Starter Website - Rs. 15,000 පමණි** 🔥
+   * Single Page Modern Responsive Design
+   * Mobile & Tablet 100% Optimized
+   * WhatsApp Chat Button, Contact Form & Google Maps
+   * සුළු ව්‍යාපාර, Portfolio සහ Services සඳහා වඩාත් සුදුසුයි
+   * 3 - 4 දිනකින් Delivery!
 
-🔹 **Full E-Commerce Platform (Rs. 60,000):**
-   * PayHere, Stripe, Visa/MasterCard, Koko Pay & COD
-   * Automated WhatsApp & Email Order Confirmation
-   * Admin Control Panel to manage products and sales
+2️⃣ **Corporate Business Website - Rs. 32,000**
+   * Multi-Page (Home, About, Services, Gallery, Contact)
+   * **නොමිලේ .COM / .LK Domain & 1 Year High-Speed Cloud Hosting**
+   * Google Search SEO Ranking & Free SSL
+   * 5 - 7 දිනකින් Delivery
 
-📸 *අප විසින් නිර්මාණය කළ සාර්ථක Websites කිහිපයක්:*
-- Photography Studios (e.g. tilnogzphotography.com.lk)
-- Construction & Hospitality (e.g. NEAT Services)
-- Tourism & Hotels (e.g. Hiruzone Tourism)
-- Fashion Boutiques & Retail Stores
+3️⃣ **Full E-Commerce Online Store - Rs. 55,000**
+   * Online Card Payments (Visa/MasterCard/Koko/Bank)
+   * Unlimited Products, Shopping Cart & Inventory
+   * Automated WhatsApp & Email Order Confirmations
 
-ඔබගේ ව්‍යාපාරයටත් Website එකක් සාදාගැනීමට අවශ්‍ය නම් විස්තර පවසන්න! 💻✨`;
+ඔබේ ව්‍යාපාරයට ගැලපෙන Package එක කුමක්දැයි අපට පවසන්න! 💻✨`;
   }
 
   // 4. WhatsApp Bot / AI Assistant
@@ -104,16 +92,16 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     clean.includes('bot') || clean.includes('whatsapp') || clean.includes('agent') ||
     clean.includes('ai') || clean.includes('auto reply')
   ) {
-    return `🤖 **Harsh Apex 24/7 AI WhatsApp Sales Agent (Rs. 25,000)**
+    return `🤖 **Harsh Apex 24/7 AI WhatsApp Sales Agent (Rs. 22,000)**
 
-ඔබ නිදාගෙන සිටින විටත් ව්‍යාපාරයේ WhatsApp එකට එන Clients ලාට විනාඩියෙන් replies දෙන Intelligent AI Sales Agent කෙනෙක්! ⚡
+ඔබ නිදාගෙන සිටින වේලාවටත් WhatsApp එකට එන Clients ලාට ක්ෂණිකව replies ලබාදෙන Smart AI Agent කෙනෙක්! ⚡
 
-✅ **Trilingual:** සිංහල, Singlish, දෙමළ (தமிழ்) සහ English චතුර ලෙස කතා කරයි
-✅ **Bank Slip Verification:** Customer එවනා Bank Deposit Slips/Screenshots කියවා Amount එක සහ Ref No එක Confirm කරයි
-✅ **Order & Lead Capturing:** Customer details, Orders ස්වයංක්‍රීයව Database සහ Google Sheets වලට Save කරයි
-✅ **Live Web Admin Panel:** ඔබගේ Browser එකෙන් Orders සහ Live Chats බලාගත හැක
+✅ **Trilingual Chat:** සිංහල, Singlish, Tamil (தமிழ்) & English චතුර ලෙස කතා කරයි
+✅ **Bank Slip Verification:** Customer එවනා Bank Transfer Slips / Screenshots කියවා Confirm කරයි
+✅ **Automated Orders & CRM:** Customer Details ස්වයංක්‍රීයව Save කරගනී
+✅ **Live Web Admin Panel:** Orders සහ Chat Logs බලාගැනීමට Dashboard එකක් හිමිවේ
 
-ඔබේ WhatsApp අංකයටත් මෙවැනි Smart Agent කෙනෙක් සම්බන්ධ කරගැනීමට අවශ්‍යද? 📱🚀`;
+ඔබේ WhatsApp එකටත් මේ Bot කෙනෙක් Set කරගැනීමට අවශ්‍ය නම් පවසන්න! 📱🚀`;
   }
 
   // 5. POS System / Billing / Retail / Supermarket / Restaurant
@@ -121,17 +109,17 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
     clean.includes('pos') || clean.includes('billing') || clean.includes('inventory') ||
     clean.includes('stock') || clean.includes('bill')
   ) {
-    return `💻 **Smart Cloud POS & Billing Software - Rs. 45,000**
+    return `💻 **Smart Cloud POS & Billing System - Rs. 38,000**
 
-Retail Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා විශේෂිත වූ POS පද්ධතිය:
+Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා විශේෂිත වූ POS පද්ධතිය:
 
 ✅ Barcode Scanner සහ Thermal Receipt Printing Support
 ✅ Real-time Stock / Inventory Tracking & Low Stock Alerts
 ✅ දෛනික ආදායම්, වියදම් සහ ලාභ/අලාභ වාර්තා (Daily P&L Reports)
 ✅ පාරිභෝගිකයාගේ WhatsApp එකට කෙලින්ම Digital Invoices යැවීම
-✅ Multi-Branch (ශාඛා කිහිපයක්) කළමනාකරණය & Cloud Backup
+✅ Cloud Backup සහ ආරක්ෂිත දත්ත පද්ධතිය
 
-Demo එකක් බලාගැනීමට හෝ වැඩිදුර විස්තර සඳහා පවසන්න! 📊`;
+Demo එකක් බලාගැනීමට අවශ්‍ය නම් අපට පවසන්න! 📊`;
   }
 
   // 6. Bank Details / Payment / Advance / Transfer / Slip / Salli
@@ -148,10 +136,10 @@ Demo එකක් බලාගැනීමට හෝ වැඩිදුර ව�
 🔢 **Account Number:** **${bank.accountNumber}**
 📍 **Branch:** ${bank.branch}
 
-📌 *Project එක ආරම්භ කිරීමට 50% Advance හෝ සම්පූර්ණ මුදල තැන්පත් කළ හැක. මුදල් ගෙවූ පසු Slip පතේ ඡායාරූපය (Photo/Screenshot) මෙතැනට WhatsApp කරන්න. පද්ධතිය මගින් එය ක්ෂණිකව තහවුරු කරනු ඇත.* ✅`;
+📌 *Project එක ආරම්භ කිරීමට 50% Advance මුදල තැන්පත් කළ හැක. මුදල් ගෙවූ පසු Slip පතේ ඡායාරූපය (Photo/Screenshot) මෙතැනට WhatsApp කරන්න. පද්ධතිය මගින් එය ක්ෂණිකව Confirm කරනු ඇත.* ✅`;
   }
 
-  // 7. Contact / Phone / Location / Harshan / Address / Founder
+  // 7. Contact / Phone / Location / Harshan / Address
   if (
     clean.includes('contact') || clean.includes('phone') || clean.includes('number') ||
     clean.includes('call') || clean.includes('location') || clean.includes('galle') ||
@@ -164,26 +152,26 @@ Demo එකක් බලාගැනීමට හෝ වැඩිදුර ව�
 📧 **Email:** chamilka.ch@gmail.com
 🌐 **Website:** https://harshapex.com.lk
 📱 **Facebook:** https://facebook.com/harshapex
-📍 **ලිපිනය:** Pinnaduwa, Galle, Sri Lanka (Services available Islandwide & Globally)
+📍 **ලිපිනය:** Pinnaduwa, Galle, Sri Lanka
 
-ඔබට Harshan මහතා සමඟ සෘජුවම දුරකථනයෙන් සාකච්ඡා කිරීමට අවශ්‍ය නම් ඔබේ දුරකථන අංකය අප වෙත ලබාදෙන්න! 🤝📞`;
+ඔබට Harshan මහතා සමඟ සෘජුවම දුරකථනයෙන් සාකච්ඡා කිරීමට අවශ්‍ය නම් ඔබේ දුරකථන අංකය ලබාදෙන්න! 🤝📞`;
   }
 
-  // 8. Tamil Inquiry (விலை / விவரங்கள் / வணக்கம்)
+  // 8. Tamil Language Pricing & Inquiry
   if (
     clean.includes('விலை') || clean.includes('வணக்கம்') || clean.includes('இணையதளம்') ||
     clean.includes('விவரம்') || clean.includes('tamil')
   ) {
     return `வணக்கம்! 🙏✨
-**Harsh Apex Digital Solutions**-க்கு உங்களை அன்புடன் வரவேற்கிறோம்! 🚀
+**Harsh Apex Digital Solutions**-ன் பிரத்யேக சலுகைகள்:
 
-நாங்கள் வழங்கும் முக்கிய டிஜிட்டல் சேவைகள்:
-🌐 **1. வலைத்தள வடிவமைப்பு (Web Development)** - Rs. 35,000 முதல்
-🛒 **2. E-Commerce ஆன்லைன் ஸ்டோர்** - Rs. 60,000 முதல்
-🤖 **3. 24/7 WhatsApp AI Bot & Sales Assistant** - Rs. 25,000
-💻 **4. POS & Billing System** - Rs. 45,000
+🌐 **1. Basic Website:** **Rs. 15,000 மட்டும்** 🔥
+🌐 **2. Corporate Business Website:** **Rs. 32,000** (Free Domain & Hosting உடன்)
+🛒 **3. Full E-Commerce Store:** **Rs. 55,000**
+🤖 **4. 24/7 WhatsApp AI Bot:** **Rs. 22,000**
+💻 **5. Cloud POS & Billing System:** **Rs. 38,000**
 
-மேலதிக விவரங்களுக்கு உங்கள் தேவையை இங்கே பதிவிடவும் அல்லது +94 77 066 3154 என்ற எண்ணை தொடர்பு கொள்ளவும். ✨`;
+மேலதிக விவரங்களுக்கு உங்கள் தேவையை இங்கே பதிவிடவும். ✨`;
   }
 
   return null;
