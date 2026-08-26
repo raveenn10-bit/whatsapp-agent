@@ -3,7 +3,7 @@ import makeWASocket, {
   DisconnectReason,
   fetchLatestBaileysVersion,
   WASocket,
-  proto
+  Browsers
 } from '@whiskeysockets/baileys';
 import pino from 'pino';
 import { Boom } from '@hapi/boom';
@@ -13,25 +13,48 @@ import { handleIncomingMessage } from './messageHandler.js';
 
 export class WhatsAppClient {
   public sock: WASocket | null = null;
-  private isInitializing: boolean = false;
+  private isConnecting: boolean = false;
+  private reconnectTimer: NodeJS.Timeout | null = null;
 
   public async initialize() {
-    if (this.isInitializing) return;
-    this.isInitializing = true;
+    if (this.isConnecting) {
+      return;
+    }
+    this.isConnecting = true;
+
+    // Clear any pending reconnect timers
+    if (this.reconnectTimer) {
+      clearTimeout(this.reconnectTimer);
+      this.reconnectTimer = null;
+    }
 
     try {
-      console.log('🚀 Initializing WhatsApp Agent Gateway...');
+      console.log('🚀 Initializing WhatsApp Agent Gateway (High Stability Mode)...');
       const { state, saveCreds } = await useMultiFileAuthState(config.authDir);
-      const { version } = await fetchLatestBaileysVersion().catch(() => ({ version: [2, 3000, 1015901307] as [number, number, number] }));
+      const { version } = await fetchLatestBaileysVersion().catch(() => ({
+        version: [2, 3000, 1015901307] as [number, number, number]
+      }));
+
+      // If an existing socket exists, gracefully end it before creating a new one
+      if (this.sock) {
+        try {
+          this.sock.end(undefined);
+        } catch (_) {}
+        this.sock = null;
+      }
 
       this.sock = makeWASocket({
         version,
         logger: pino({ level: 'silent' }),
         printQRInTerminal: false,
         auth: state,
-        browser: ['Harsh Apex Digital Solutions', 'Chrome', '1.0.0'],
+        browser: Browsers.windows('Desktop'),
         syncFullHistory: false,
-        generateHighQualityLinkPreview: true
+        generateHighQualityLinkPreview: true,
+        connectTimeoutMs: 60000,
+        keepAliveIntervalMs: 25000,
+        defaultQueryTimeoutMs: 60000,
+        markOnlineOnConnect: true
       });
 
       // Save credentials whenever updated
@@ -46,25 +69,29 @@ export class WhatsAppClient {
         }
 
         if (connection === 'open') {
+          this.isConnecting = false;
           const userJid = this.sock?.user?.id || '';
           const phone = userJid.split(':')[0] || userJid.split('@')[0];
+          console.log(`✅ WhatsApp Gateway Connected & Active for +${phone}`);
           qrManager.setConnected(phone);
         }
 
         if (connection === 'close') {
-          const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut;
-          const reason = (lastDisconnect?.error as Error)?.message || 'Connection closed';
+          this.isConnecting = false;
+          const statusCode = (lastDisconnect?.error as Boom)?.output?.statusCode;
+          const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
+          const reason = (lastDisconnect?.error as Error)?.message || `Code ${statusCode}`;
+
+          console.warn(`⚠️ WhatsApp connection closed: ${reason} (Code: ${statusCode})`);
           qrManager.setDisconnected(reason);
 
           if (shouldReconnect) {
-            console.log('🔄 Reconnecting to WhatsApp in 5 seconds...');
-            setTimeout(() => {
-              this.isInitializing = false;
+            console.log('🔄 Re-establishing stable WhatsApp connection in 3 seconds...');
+            this.reconnectTimer = setTimeout(() => {
               this.initialize();
-            }, 5000);
+            }, 3000);
           } else {
-            console.log('❌ Logged out from WhatsApp. Please delete auth files and re-scan.');
-            this.isInitializing = false;
+            console.error('❌ WhatsApp logged out. Session expired. Please re-scan QR.');
           }
         }
       });
@@ -84,8 +111,8 @@ export class WhatsAppClient {
 
     } catch (err) {
       console.error('Failed to initialize WhatsApp socket:', err);
-      this.isInitializing = false;
-      setTimeout(() => this.initialize(), 5000);
+      this.isConnecting = false;
+      this.reconnectTimer = setTimeout(() => this.initialize(), 4000);
     }
   }
 

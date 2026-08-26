@@ -29,10 +29,7 @@ export function createDashboardServer() {
   app.use('/media', express.static(config.mediaDir));
 
   // --- REST Endpoints ---
-  app.get('/api/status', async (req, res) => {
-    if (!whatsappClient.sock) {
-      whatsappClient.initialize().catch(console.error);
-    }
+  app.get('/api/status', (req, res) => {
     const status = qrManager.getStatus();
     res.json({
       ...status,
