@@ -5,7 +5,7 @@
     "category": "Web Development",
     "price": 15000,
     "currency": "LKR",
-    "description": "Clean, modern, high-converting Single Page Website for small businesses, services, and portfolios to establish an online presence on a budget.",
+    "description": "Clean, modern, high-converting Single Page Website built with modern Next.js/React technology for small businesses, services, and portfolios.",
     "features": [
       "Modern Single Page Responsive Web Design",
       "Mobile & Tablet 100% Optimized",
@@ -18,15 +18,15 @@
   },
   {
     "id": "SRV-WEB-CORP",
-    "name": "Professional Corporate Business Website",
+    "name": "Corporate Business Website & Portal",
     "category": "Web Development",
     "price": 32000,
     "currency": "LKR",
-    "description": "Multi-page premium corporate website with Free Domain, High-Speed Hosting, and SEO optimization for companies, hotels, and agencies.",
+    "description": "Multi-page high-performance Next.js 16 corporate website with Free Domain, High-Speed Hosting, and #1 Google SEO ranking.",
     "features": [
       "Up to 5 Custom Pages (Home, About, Services, Gallery, Contact)",
       "Free .COM / .LK Domain & 1 Year High-Speed Cloud Hosting",
-      "Technical SEO to rank on Google search",
+      "95+ Lighthouse Score & Technical SEO",
       "Free SSL Certificate & Business Emails",
       "5 - 7 Days Delivery"
     ],
@@ -35,14 +35,14 @@
   },
   {
     "id": "SRV-WEB-ECOM",
-    "name": "Full E-Commerce Online Store",
-    "category": "Web Development",
+    "name": "Full E-Commerce Online Store Platform",
+    "category": "E-Commerce",
     "price": 55000,
     "currency": "LKR",
-    "description": "Complete online shopping website with payment gateway integration (Cards, Koko, Mintpay, Bank Deposit) and order tracking.",
+    "description": "High-conversion online shopping store with local & international payment gateways (PayHere, Stripe, Visa/Master, Koko) and inventory management.",
     "features": [
       "Unlimited Products & Category catalog",
-      "Payment Gateways (Visa/MasterCard, Koko, Bank Transfer, COD)",
+      "Payment Gateways (PayHere, Stripe, Visa/MasterCard, Koko, COD)",
       "Automated WhatsApp & Email Order Notifications",
       "Admin Panel to manage products, stock & discounts",
       "Free 1 Year Cloud Hosting & Domain"
@@ -52,11 +52,11 @@
   },
   {
     "id": "SRV-WA-01",
-    "name": "WhatsApp AI Sales & Support Bot",
+    "name": "24/7 WhatsApp AI Sales Agent & Automation",
     "category": "AI Automation",
     "price": 22000,
     "currency": "LKR",
-    "description": "24/7 Smart WhatsApp Assistant that speaks Sinhala, Singlish, Tamil & English, takes customer orders, and verifies bank slips.",
+    "description": "24/7 Smart WhatsApp Assistant that speaks Sinhala, Singlish, Tamil & English, takes customer orders, and verifies bank transfer slips automatically.",
     "features": [
       "24/7 Instant Auto Replies in Sinhala, Singlish, Tamil & English",
       "Automatic Bank Transfer Slip & Receipt Verification (Vision AI)",
@@ -69,11 +69,11 @@
   },
   {
     "id": "SRV-POS-01",
-    "name": "Smart Cloud POS & Billing System",
+    "name": "Custom POS & Cloud Billing Software",
     "category": "Software Solutions",
     "price": 38000,
     "currency": "LKR",
-    "description": "Modern Point of Sale (POS) and inventory billing system for retail shops, restaurants, pharmacies, and supermarkets.",
+    "description": "Point of Sale (POS), billing software, inventory control, and multi-branch management for retail shops, restaurants, pharmacies, and supermarkets.",
     "features": [
       "Fast Barcode Billing & Thermal Receipt Printing",
       "Real-time Inventory & Stock Tracking with Low Stock Alerts",
@@ -82,6 +82,22 @@
       "Cloud Backup & Offline support"
     ],
     "deliveryTime": "3 - 5 Days",
+    "inStock": true
+  },
+  {
+    "id": "SRV-APP-01",
+    "name": "Mobile App Development (iOS & Android)",
+    "category": "Mobile Apps",
+    "price": 48000,
+    "currency": "LKR",
+    "description": "Bespoke iOS, Android, and cross-platform mobile apps built with React Native & Flutter to automate workflows and delight users.",
+    "features": [
+      "Native iOS & Android Cross-Platform Apps",
+      "Built with Flutter & React Native",
+      "Real-time Cloud Backend & Push Notifications",
+      "Google Play Store & Apple App Store Publishing Support"
+    ],
+    "deliveryTime": "2 - 3 Weeks",
     "inStock": true
   }
 ]
