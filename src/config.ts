@@ -66,7 +66,7 @@ if (fs.existsSync(servicesPath)) {
 }
 
 export const config = {
-  port: parseInt(process.env.PORT || '3000', 10),
+  port: parseInt(process.env.PORT || '7860', 10),
   geminiApiKey: process.env.GEMINI_API_KEY || '',
   openaiApiKey: process.env.OPENAI_API_KEY || '',
   aiProvider: (process.env.AI_PROVIDER || 'gemini') as 'gemini' | 'openai',
