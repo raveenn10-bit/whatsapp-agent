@@ -2,7 +2,10 @@ import { config } from './config.js';
 import { createDashboardServer } from './dashboard/server.js';
 import { whatsappClient } from './whatsapp/client.js';
 
-async function main() {
+const { app, server } = createDashboardServer();
+
+// Start Web Server
+server.listen(config.port, () => {
   console.log(`
 ==================================================================
   🚀 HARSH APEX DIGITAL SOLUTIONS - WHATSAPP AI AGENT 🚀
@@ -10,20 +13,14 @@ async function main() {
   🏢 Business: ${config.business.business.name}
   🌐 Languages: Sinhala (සිංහල), Singlish, Tamil (தமிழ்), English
   🤖 AI Model: Google Gemini (${config.geminiModel})
+  📊 Web Dashboard running at: http://localhost:${config.port}
 ==================================================================
   `);
-
-  // Start Web Dashboard Server
-  const { server } = createDashboardServer();
-  server.listen(config.port, () => {
-    console.log(`📊 Web Dashboard running at: http://localhost:${config.port}`);
-  });
-
-  // Start WhatsApp Gateway
-  await whatsappClient.initialize();
-}
-
-main().catch((err) => {
-  console.error('Fatal error in main:', err);
-  process.exit(1);
 });
+
+// Start WhatsApp Gateway
+whatsappClient.initialize().catch((err) => {
+  console.error('WhatsApp Gateway init error:', err);
+});
+
+export default app;
