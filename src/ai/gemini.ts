@@ -3,6 +3,7 @@ import { config } from '../config.js';
 import { buildSystemPrompt } from './systemPrompt.js';
 import { memoryManager } from './memory.js';
 import { executeTool } from '../tools/agentTools.js';
+import { getSmartCustomResponse } from './smartResponder.js';
 
 export interface AIResponse {
   text: string;
@@ -14,18 +15,20 @@ export class GeminiService {
   private genAI: GoogleGenerativeAI | null = null;
 
   constructor() {
-    if (config.geminiApiKey && config.geminiApiKey !== 'YOUR_GEMINI_API_KEY_HERE') {
+    if (config.geminiApiKey && config.geminiApiKey.startsWith('AIza')) {
       this.genAI = new GoogleGenerativeAI(config.geminiApiKey);
     }
   }
 
   public isConfigured(): boolean {
-    return !!(config.geminiApiKey && config.geminiApiKey !== 'YOUR_GEMINI_API_KEY_HERE');
+    return !!(config.geminiApiKey && config.geminiApiKey.startsWith('AIza'));
   }
 
   public updateApiKey(key: string) {
     config.geminiApiKey = key;
-    this.genAI = new GoogleGenerativeAI(key);
+    if (key && key.startsWith('AIza')) {
+      this.genAI = new GoogleGenerativeAI(key);
+    }
   }
 
   public async generateReply(
@@ -35,13 +38,23 @@ export class GeminiService {
     imageAttachment?: { buffer: Buffer; mimeType: string },
     audioAttachment?: { buffer: Buffer; mimeType: string }
   ): Promise<AIResponse> {
+    // 1. Check if there is an instant smart custom match
+    if (incomingText && !imageAttachment && !audioAttachment) {
+      const smartReply = getSmartCustomResponse(customerPhone, customerName, incomingText);
+      if (smartReply) {
+        memoryManager.addMessage(customerPhone, 'user', incomingText);
+        memoryManager.addMessage(customerPhone, 'model', smartReply);
+        return { text: smartReply };
+      }
+    }
+
     if (!this.genAI) {
-      if (config.geminiApiKey && config.geminiApiKey !== 'YOUR_GEMINI_API_KEY_HERE') {
+      if (config.geminiApiKey && config.geminiApiKey.startsWith('AIza')) {
         this.genAI = new GoogleGenerativeAI(config.geminiApiKey);
       } else {
-        return {
-          text: `ආයුබෝවන්! Harsh Apex Digital Solutions වෙත සාදරයෙන් පිළිගනිමු.\n\n⚠️ (System Notice: Gemini API Key is not set in .env yet. Please add your GEMINI_API_KEY to activate 24/7 AI Sales Assistant).`
-        };
+        const fallback = getSmartCustomResponse(customerPhone, customerName, incomingText) ||
+          `ආයුබෝවන්! Harsh Apex Digital Solutions වෙත සාදරයෙන් පිළිගනිමු. 🙏✨\n\nඅපගේ Web Development, WhatsApp Bots, POS Systems හෝ Digital Marketing සේවාවන් පිළිබඳ විස්තර සහ මිල ගණන් දැනගැනීමට කරුණාකර 'Prices' ලෙස එවන්න! 🚀`;
+        return { text: fallback };
       }
     }
 
