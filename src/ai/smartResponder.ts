@@ -5,7 +5,7 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
   const clean = text.toLowerCase().trim();
   const bank = config.business.bankDetails;
 
-  // 1. Greetings (Hi, Hello, Hey, Ayubowan, Vanakkam, Kohomada) - Formatted like the 1st Image!
+  // 1. Greetings (Hi, Hello, Hey, Ayubowan, Vanakkam, Kohomada)
   if (
     clean === 'hi' || clean === 'hello' || clean === 'hey' || clean === 'hlo' ||
     clean === 'hy' || clean === 'hii' || clean === 'hiii' || clean === 'හායි' ||
@@ -18,13 +18,11 @@ export function getSmartCustomResponse(customerPhone: string, customerName: stri
 
 _ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණයෙන් ඉහළටම ඔසවා තබන ඔබේ විශ්වාසනීය ඩිජිටල් සහකරු_ ⚡
 
-අපගේ සේවාවන්:
+අපගේ ප්‍රධාන සේවාවන්:
 ━━━━━━━━━━━━━━━━━
 ✅ *Websites & Online Stores* (රු. 15,000 සිට) 🌐
-✅ *24/7 WhatsApp AI Sales Bots* 🤖
-✅ *Smart Cloud POS & Billing Systems* 💻
-✅ *Targeted Meta & TikTok Advertising* 📱
-✅ *Professional Logo & Branding Design* 🎨
+✅ *24/7 WhatsApp AI Sales Bots* (රු. 22,000) 🤖
+✅ *Smart Cloud POS & Billing Systems* (රු. 38,000) 💻
 ━━━━━━━━━━━━━━━━━
 
 💬 _ඔබට අවශ්‍ය සේවාවේ අංකය පහතින් තෝරා එවන්න:_
@@ -32,13 +30,12 @@ _ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණ�
 1️⃣ *Websites & E-Commerce*
 2️⃣ *WhatsApp AI Bot*
 3️⃣ *POS System*
-4️⃣ *Meta Marketing Ads*
-5️⃣ *සම්පූර්ණ මිල ගණන් (Price List)*`;
+4️⃣ *සම්පූර්ණ මිල ගණන් (Price List)*`;
   }
 
-  // 2. Price / Pricing / Packages / Cost / Number '5'
+  // 2. Price / Pricing / Packages / Cost / Number '4'
   if (
-    clean === '5' || clean.includes('price') || clean.includes('pricing') ||
+    clean === '4' || clean.includes('price') || clean.includes('pricing') ||
     clean.includes('mila') || clean.includes('gaana') || clean.includes('ganan') ||
     clean.includes('kiyada') || clean.includes('package') || clean.includes('cost') ||
     clean.includes('rates') || clean.includes('මිල') || clean.includes('ගණන්')
@@ -60,14 +57,10 @@ _ඔබේ ව්‍යාපාරය ඩිජිටල් තාක්ෂණ�
 💻 *Software & POS Systems:*
 • *Cloud POS & Billing System:* Rs. 38,000
 
-📱 *Marketing & Branding:*
-• *Meta/TikTok Ads Campaign:* Rs. 18,000/mo
-• *Logo & Social Media Pack:* Rs. 10,000
-
 ━━━━━━━━━━━━━━━━━
 📌 _නොමිලේ 1 Year Support & Maintenance හිමිවේ._
 
-👉 *වැඩිදුර විස්තර සඳහා අවශ්‍ය සේවාවේ අංකය (1, 2, 3, 4) එවන්න.* 🚀`;
+👉 *වැඩිදුර විස්තර සඳහා අවශ්‍ය සේවාවේ අංකය (1, 2, 3) එවන්න.* 🚀`;
   }
 
   // 3. Website Inquiries / Number 1
@@ -143,28 +136,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 👉 _Demo එකක් බලාගැනීමට අවශ්‍ය නම් අපට පවසන්න._ 📊`;
   }
 
-  // 6. Meta / Social Media Marketing / Number 4
-  if (
-    clean === '4' || clean.includes('meta') || clean.includes('ad') ||
-    clean.includes('ads') || clean.includes('marketing') || clean.includes('facebook') ||
-    clean.includes('tiktok')
-  ) {
-    return `📱 *TARGETED META & TIKTOK ADS MARKETING*
-━━━━━━━━━━━━━━━━━
-💵 *ගාස්තුව: Rs. 18,000 / මසකට*
-
-ඔබේ ව්‍යාපාරයට කෙලින්ම WhatsApp Leads සහ Sales ගෙන දෙන Targeted Ad Campaigns:
-
-✅ Targeted Audience Research (Sri Lanka & Worldwide)
-✅ Custom Graphic Ad Creatives & Video Ads
-✅ WhatsApp Direct Message Ads Setup
-✅ Weekly Analytics & Campaign Optimization
-
-━━━━━━━━━━━━━━━━━
-👉 _Ads පටන් ගැනීමට අවශ්‍ය නම් පවසන්න._ 🚀`;
-  }
-
-  // 7. Bank Details / Payment / Advance / Transfer / Slip
+  // 6. Bank Details / Payment / Advance / Transfer / Slip
   if (
     clean.includes('bank') || clean.includes('account') || clean.includes('acc') ||
     clean.includes('transfer') || clean.includes('payment') || clean.includes('slip') ||
@@ -185,7 +157,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 📸 _ගෙවූ පසු Slip පතේ ඡායාරූපයක් (Photo/Screenshot) මෙතැනට එවන්න._ ✅`;
   }
 
-  // 8. Contact / Phone / Location / Harshan / Address
+  // 7. Contact / Phone / Location / Harshan / Address
   if (
     clean.includes('contact') || clean.includes('phone') || clean.includes('number') ||
     clean.includes('call') || clean.includes('location') || clean.includes('galle') ||
@@ -205,7 +177,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 🤝 _Harshan මහතා සමඟ සෘජුවම දුරකථනයෙන් සාකච්ඡා කිරීමට ඔබගේ දුරකථන අංකය ලබාදෙන්න._ 📞`;
   }
 
-  // 9. Tamil Language Pricing & Inquiry
+  // 8. Tamil Language Pricing & Inquiry
   if (
     clean.includes('விலை') || clean.includes('வணக்கம்') || clean.includes('இணையதளம்') ||
     clean.includes('விவரம்') || clean.includes('tamil')
@@ -213,7 +185,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
     return `*வணக்கம்!* 🙏✨
 *Harsh Apex Digital Solutions*
 
-எங்கள் முக்கிய சலுகைகள்:
+எங்கள் முக்கிய சලுகைகள்:
 ━━━━━━━━━━━━━━━━━
 🌐 *1. Basic Website:* Rs. 15,000 மட்டும் 🔥
 🌐 *2. Business Website:* Rs. 32,000 (Free Domain & Hosting)
@@ -221,7 +193,7 @@ Shops, Supermarkets, Restaurants, Hardware සහ Pharmacies සඳහා:
 🤖 *4. WhatsApp AI Bot:* Rs. 22,000
 💻 *5. Cloud POS System:* Rs. 38,000
 ━━━━━━━━━━━━━━━━━
-👉 _மேலதிக விவரங்களுக்கு எண்ணை (1, 2, 3, 4) இங்கே பதிவிடவும்._ ✨`;
+👉 _மேலதிக விவரங்களுக்கு எண்ணை (1, 2, 3) இங்கே பதிவிடவும்._ ✨`;
   }
 
   return null;

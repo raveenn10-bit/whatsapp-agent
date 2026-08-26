@@ -83,37 +83,5 @@
     ],
     "deliveryTime": "3 - 5 Days",
     "inStock": true
-  },
-  {
-    "id": "SRV-MKT-01",
-    "name": "Social Media Marketing & Targeted Meta Ads",
-    "category": "Digital Marketing",
-    "price": 18000,
-    "currency": "LKR",
-    "description": "Targeted Facebook, Instagram & TikTok advertising campaigns to drive leads and sales directly to your WhatsApp or Website.",
-    "features": [
-      "Targeted Audience Research in Sri Lanka & Worldwide",
-      "Custom Graphic Ad Creatives & Video Ads",
-      "Direct WhatsApp Message Ads setup",
-      "Weekly Performance Analytics & Campaign Optimization"
-    ],
-    "deliveryTime": "Monthly Campaign",
-    "inStock": true
-  },
-  {
-    "id": "SRV-DSG-01",
-    "name": "Logo & Social Media Branding Pack",
-    "category": "Graphic Design",
-    "price": 10000,
-    "currency": "LKR",
-    "description": "Professional Vector Logo Design + 10 Creative Social Media Post Designs with Sinhala/English captions.",
-    "features": [
-      "High-Resolution Vector Logo + Source Files",
-      "10 High-Quality Social Media Posts for Facebook/Instagram",
-      "Matching Profile & Cover Banners",
-      "Fast 48-Hour delivery"
-    ],
-    "deliveryTime": "2 - 3 Days",
-    "inStock": true
   }
 ]
