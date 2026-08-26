@@ -11,34 +11,38 @@ const rootDir = path.resolve(__dirname, '..');
 
 // Load Business Config
 const businessConfigPath = path.join(rootDir, 'config', 'business.json');
-let businessConfig = {
+let businessConfig: any = {
   business: {
     name: 'Harsh Apex Digital Solutions',
-    tagline: 'Empowering Businesses with Next-Gen Digital & AI Solutions',
+    ownerName: 'K C Harshan',
+    tagline: 'Elevating Your Digital presence with modern web solutions & designs. Your Trusted Digital Partner',
     description: 'Premier digital agency in Sri Lanka specializing in Web Development, WhatsApp AI Automation, Social Media Marketing, Custom Software, and Branding.',
-    phone: '+94 7X XXX XXXX',
-    email: 'contact@harshapex.com',
-    website: 'https://harshapex.com',
-    address: 'Colombo, Sri Lanka',
-    openingHours: '24/7 AI Assistance',
+    phone: '+94 77 066 3154',
+    whatsapp: '+94 77 066 3154',
+    email: 'chamilka.ch@gmail.com',
+    website: 'https://harshapex.com.lk',
+    facebook: 'https://facebook.com/harshapex',
+    address: 'Pinnaduwa, Galle, Sri Lanka, 80000',
+    openingHours: 'Always Open (24/7 AI Assistance)',
     currency: 'LKR',
     currencySymbol: 'Rs.'
   },
   bankDetails: {
-    bankName: 'Commercial Bank of Ceylon',
-    accountName: 'Harsh Apex Digital Solutions',
-    accountNumber: '1000XXXXXX',
-    branch: 'Colombo Main Branch',
-    instructions: 'Please transfer the payment and send a photo/screenshot of the bank slip or transfer receipt here on WhatsApp.'
+    bankName: 'Sampath Bank',
+    accountName: 'K C Harshan',
+    accountNumber: '1141 5230 9905',
+    branch: 'Karapitiya Branch',
+    instructions: 'Please transfer the payment to Sampath Bank account and send a photo/screenshot of the bank slip or transfer receipt here on WhatsApp.'
   },
   languages: {
     supported: ['si', 'en', 'ta', 'singlish']
   },
   salesSettings: {
-    leadNotificationNumber: '+947XXXXXXXX',
+    leadNotificationNumber: '+94770663154',
     allowDirectBooking: true,
     requireDepositForProject: true,
-    depositPercentage: 50
+    depositPercentage: 50,
+    escalateCustomProjectToOwner: true
   }
 };
 

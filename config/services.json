@@ -1,52 +1,34 @@
 [
   {
     "id": "SRV-WA-01",
-    "name": "WhatsApp AI Agent - Starter",
+    "name": "WhatsApp AI Agent - Sales & Support",
     "category": "AI Automation",
     "price": 25000,
     "currency": "LKR",
-    "description": "24/7 Auto-reply WhatsApp Bot with Sinhala/English/Tamil support, FAQ handling, and contact details collection.",
+    "description": "24/7 Smart WhatsApp Assistant for your business that speaks Sinhala, Singlish, Tamil, and English, takes orders, and verifies bank slips.",
     "features": [
-      "24/7 Instant Auto Replies",
-      "Sinhala, English & Tamil language understanding",
-      "Business FAQ & Inquiry answering",
-      "Customer contact capture & Google Sheets sync",
+      "24/7 Instant Auto Replies in Sinhala, Singlish, Tamil & English",
+      "Automatic Bank Transfer Slip & Receipt Verification (Vision AI)",
+      "Customer Lead capturing & Order booking",
+      "Live Web Admin Dashboard + Google Sheets Sync",
       "1 Month Free Support & Maintenance"
     ],
     "deliveryTime": "2 - 3 Days",
     "inStock": true
   },
   {
-    "id": "SRV-WA-02",
-    "name": "WhatsApp AI Sales Assistant - Pro",
-    "category": "AI Automation",
-    "price": 45000,
-    "currency": "LKR",
-    "description": "Full AI Sales Assistant capable of taking orders, recommending products, verifying bank payment slips, and booking appointments.",
-    "features": [
-      "Advanced Conversational AI with human-like tone",
-      "Trilingual & Singlish natural chat",
-      "Bank Transfer Slip & Image verification (Vision AI)",
-      "Automated Order & Booking processing",
-      "Live Admin Web Dashboard & Realtime CRM",
-      "Google Sheets & Email alerts"
-    ],
-    "deliveryTime": "4 - 5 Days",
-    "inStock": true
-  },
-  {
     "id": "SRV-WEB-01",
-    "name": "Professional Business Website",
+    "name": "Professional Corporate Business Website",
     "category": "Web Development",
-    "price": 38000,
+    "price": 35000,
     "currency": "LKR",
-    "description": "Modern, fast, mobile-friendly corporate website for businesses, consultants, and companies to build online trust and get leads.",
+    "description": "High-converting modern website for businesses, villas, hotels, and companies to build trust and get inquiries.",
     "features": [
-      "Up to 5 Custom Pages (Home, About, Services, Gallery, Contact)",
-      "Mobile & Tablet 100% Responsive Design",
-      "Free .COM Domain & High-Speed Cloud Hosting (1 Year)",
-      "WhatsApp Chat Button & Contact Form",
-      "Basic SEO & Google Maps Integration"
+      "Custom Modern Design with 100% Mobile & Tablet Optimization",
+      "Free Domain (.com / .lk) & High-Speed Cloud Hosting for 1 Year",
+      "WhatsApp Direct Chat Button, Inquiry Forms & Google Maps",
+      "SEO Optimization to rank on Google search",
+      "Free SSL Certificate & Business Emails"
     ],
     "deliveryTime": "5 - 7 Days",
     "inStock": true
@@ -55,48 +37,65 @@
     "id": "SRV-WEB-02",
     "name": "Full E-Commerce Online Store",
     "category": "Web Development",
-    "price": 65000,
+    "price": 60000,
     "currency": "LKR",
-    "description": "Complete online shopping website with payment gateway (Card/Koko/Mintpay/Bank Deposit), product catalog, and order tracking.",
+    "description": "Complete online shopping platform with Sri Lankan payment gateway integration (Cards, Koko, Bank Transfer, COD) and inventory system.",
     "features": [
-      "Unlimited Products & Category management",
-      "Sri Lankan Payment Gateway Integration (Cards, Bank Transfer, COD)",
-      "Automated WhatsApp & Email Order Notifications",
-      "Customer Accounts & Coupon codes",
-      "Admin Panel to manage products, sales & inventory"
+      "Unlimited Products & Category catalog",
+      "Payment Gateway (Visa, MasterCard, Koko, Mintpay, Bank Deposit)",
+      "Instant WhatsApp & Email Order Notifications",
+      "Admin Panel to manage orders, stock, discounts, and customers",
+      "Free 1 Year Cloud Hosting & Domain"
     ],
     "deliveryTime": "7 - 10 Days",
     "inStock": true
   },
   {
+    "id": "SRV-POS-01",
+    "name": "Smart Cloud POS & Billing System",
+    "category": "Software Solutions",
+    "price": 45000,
+    "currency": "LKR",
+    "description": "Modern Point of Sale (POS) and inventory billing system for retail shops, restaurants, pharmacies, and supermarkets.",
+    "features": [
+      "Fast Barcode Billing & Thermal Receipt Printing",
+      "Real-time Inventory & Stock Tracking with Low Stock Alerts",
+      "Daily Sales, Profit & Loss, and Expense Reports",
+      "Customer Accounts, Credit Tracking & WhatsApp Invoice sending",
+      "Cloud Backup & Offline support"
+    ],
+    "deliveryTime": "3 - 5 Days",
+    "inStock": true
+  },
+  {
     "id": "SRV-MKT-01",
-    "name": "Social Media Marketing & Meta Ads Campaign",
+    "name": "Social Media Marketing & Targeted Meta/TikTok Ads",
     "category": "Digital Marketing",
     "price": 25000,
     "currency": "LKR",
-    "description": "Targeted Facebook, Instagram & TikTok ad campaigns to generate high-converting leads and sales for your business.",
+    "description": "High-converting targeted Facebook, Instagram & TikTok advertising campaigns to drive leads and sales to your WhatsApp or Website.",
     "features": [
-      "Custom Ad Creatives & Video Ads Designing",
-      "Targeted Audience Research & Setup in Sri Lanka or Global",
-      "WhatsApp Direct Message & Lead Generation campaigns",
-      "Weekly Performance Reports & Optimization",
-      "Dedicated Campaign Manager"
+      "Targeted Audience Research in Sri Lanka & Overseas",
+      "Custom Graphic Ad Creatives & Video Ad Editing",
+      "WhatsApp Direct Message Ads to get direct customer inquiries",
+      "Weekly Performance Analytics & Campaign Optimization",
+      "Dedicated Ad Manager"
     ],
-    "deliveryTime": "Monthly Service",
+    "deliveryTime": "Monthly Campaign",
     "inStock": true
   },
   {
     "id": "SRV-DSG-01",
-    "name": "Branding & Social Media Post Design Pack",
+    "name": "Branding, Logo & Social Media Design Pack",
     "category": "Graphic Design",
-    "price": 18000,
+    "price": 15000,
     "currency": "LKR",
-    "description": "15 Premium Social Media Post & Story designs + Professional Logo / Brand Identity cleanup.",
+    "description": "Premium Logo Design, Brand Identity kit, and 15 Creative Social Media Posts with Sinhala/English captions.",
     "features": [
-      "15 High-Quality Graphic Post Designs",
-      "Matching Story & Banner templates",
-      "Creative Content Writing & Captions (Sinhala & English)",
-      "Fast 48-Hour delivery on request"
+      "Professional Vector Logo with Full Copyrights & Source files",
+      "15 High-Quality Graphic Post Designs for Facebook & Instagram",
+      "Matching Story & Banner Templates",
+      "Attractive captions and hashtags included"
     ],
     "deliveryTime": "3 - 4 Days",
     "inStock": true

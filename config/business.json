@@ -1,35 +1,39 @@
 {
   "business": {
     "name": "Harsh Apex Digital Solutions",
-    "tagline": "Empowering Businesses with Next-Gen Digital & AI Solutions",
-    "description": "Harsh Apex Digital Solutions is a premier digital agency in Sri Lanka specializing in Web Development, WhatsApp AI Automation & Chatbots, Social Media Marketing, Custom Software, and Branding.",
-    "phone": "+94 7X XXX XXXX",
-    "email": "contact@harshapex.com",
-    "website": "https://harshapex.com",
-    "address": "Colombo, Sri Lanka",
-    "openingHours": "24/7 AI Assistance (Human Support: Monday - Saturday 9:00 AM - 6:00 PM)",
+    "ownerName": "K C Harshan",
+    "tagline": "Elevating Your Digital presence with modern web solutions & designs. Your Trusted Digital Partner",
+    "description": "Harsh Apex is your trusted digital agency in Sri Lanka specializing in modern Web Development, E-Commerce Stores, WhatsApp AI Automation & Bots, POS Systems, Social Media Marketing, and Branding.",
+    "phone": "+94 77 066 3154",
+    "whatsapp": "+94 77 066 3154",
+    "email": "chamilka.ch@gmail.com",
+    "website": "https://harshapex.com.lk",
+    "facebook": "https://facebook.com/harshapex",
+    "address": "Pinnaduwa, Galle, Sri Lanka, 80000",
+    "openingHours": "Always Open (24/7 AI Assistance & Rapid Customer Support)",
     "currency": "LKR",
     "currencySymbol": "Rs."
   },
   "bankDetails": {
-    "bankName": "Commercial Bank of Ceylon",
-    "accountName": "Harsh Apex Digital Solutions",
-    "accountNumber": "1000XXXXXX",
-    "branch": "Colombo Main Branch",
-    "instructions": "Please transfer the payment and send a photo/screenshot of the bank slip or transfer receipt here on WhatsApp for automated verification."
+    "bankName": "Sampath Bank",
+    "accountName": "K C Harshan",
+    "accountNumber": "1141 5230 9905",
+    "branch": "Karapitiya Branch",
+    "instructions": "Please transfer the invoice / deposit amount to the above Sampath Bank account and send a screenshot or photo of the slip/receipt here on WhatsApp for instant confirmation."
   },
   "languages": {
     "supported": ["si", "en", "ta", "singlish"],
     "greeting": {
-      "si": "ආයුබෝවන්! Harsh Apex Digital Solutions වෙත ඔබව සාදරයෙන් පිළිගනිමු. අද ඔබට අවශ්‍ය Digital සේවාව හෝ තොරතුරු මොනවාදැයි පවසන්න? 😊",
-      "en": "Hello! Welcome to Harsh Apex Digital Solutions. How can we help scale your business with our digital and AI solutions today? 🚀",
-      "ta": "வணக்கம்! Harsh Apex Digital Solutions-க்கு வரவேற்கிறோம். இன்று உங்கள் வணிகத்திற்கான டிஜிட்டல் சேவைகளில் நாங்கள் எவ்வாறு உதவ முடியும்? ✨"
+      "si": "ආයුබෝවන්! Harsh Apex වෙත ඔබව සාදරයෙන් පිළිගනිමු. ඔබගේ ව්‍යාපාරයට අවශ්‍ය Web, WhatsApp AI Bot, POS System හෝ Social Media Marketing සේවාවන් ගැන විස්තර දැනගැනීමට අවශ්‍යද? 😊🚀",
+      "en": "Hello! Welcome to Harsh Apex. How can we elevate your digital presence with our Web Solutions, WhatsApp AI Bots, or Digital Marketing today? 🚀✨",
+      "ta": "வணக்கம்! Harsh Apex-க்கு வரவேற்கிறோம். உங்கள் வணிகத்திற்கான இணையதளம், WhatsApp AI Bot அல்லது டிஜிட்டல் சேவைகளில் நாங்கள் எவ்வாறு உதவ முடியும்? ✨"
     }
   },
   "salesSettings": {
-    "leadNotificationNumber": "+947XXXXXXXX",
+    "leadNotificationNumber": "+94770663154",
     "allowDirectBooking": true,
     "requireDepositForProject": true,
-    "depositPercentage": 50
+    "depositPercentage": 50,
+    "escalateCustomProjectToOwner": true
   }
 }
