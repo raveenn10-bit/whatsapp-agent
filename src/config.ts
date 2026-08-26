@@ -65,8 +65,13 @@ if (fs.existsSync(servicesPath)) {
   }
 }
 
+const isVercel = !!process.env.VERCEL;
+const dataDir = isVercel ? path.join('/tmp', 'data') : path.join(rootDir, 'data');
+const authDir = isVercel ? path.join('/tmp', 'data', 'auth_info') : path.join(rootDir, 'data', 'auth_info');
+const mediaDir = isVercel ? path.join('/tmp', 'data', 'media') : path.join(rootDir, 'data', 'media');
+
 export const config = {
-  port: parseInt(process.env.PORT || '7860', 10),
+  port: parseInt(process.env.PORT || '3000', 10),
   geminiApiKey: process.env.GEMINI_API_KEY || '',
   openaiApiKey: process.env.OPENAI_API_KEY || '',
   aiProvider: (process.env.AI_PROVIDER || 'gemini') as 'gemini' | 'openai',
@@ -76,13 +81,18 @@ export const config = {
   enableTypingIndicator: process.env.ENABLE_TYPING_INDICATOR !== 'false',
   googleSheetWebhookUrl: process.env.GOOGLE_SHEET_WEBHOOK_URL || '',
   rootDir,
-  dataDir: path.join(rootDir, 'data'),
-  authDir: path.join(rootDir, 'data', 'auth_info'),
-  mediaDir: path.join(rootDir, 'data', 'media'),
+  dataDir,
+  authDir,
+  mediaDir,
   business: businessConfig,
   services: servicesCatalog
 };
 
 // Ensure directories exist
-if (!fs.existsSync(config.dataDir)) fs.mkdirSync(config.dataDir, { recursive: true });
-if (!fs.existsSync(config.mediaDir)) fs.mkdirSync(config.mediaDir, { recursive: true });
+try {
+  if (!fs.existsSync(config.dataDir)) fs.mkdirSync(config.dataDir, { recursive: true });
+  if (!fs.existsSync(config.mediaDir)) fs.mkdirSync(config.mediaDir, { recursive: true });
+  if (!fs.existsSync(config.authDir)) fs.mkdirSync(config.authDir, { recursive: true });
+} catch (err) {
+  console.warn('Directory creation notice:', err);
+}

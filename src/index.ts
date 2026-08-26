@@ -4,9 +4,10 @@ import { whatsappClient } from './whatsapp/client.js';
 
 const { app, server } = createDashboardServer();
 
-// Start Web Server
-server.listen(config.port, () => {
-  console.log(`
+// In non-serverless environments (local, Docker, VPS, Render), start server and WhatsApp daemon
+if (!process.env.VERCEL) {
+  server.listen(config.port, () => {
+    console.log(`
 ==================================================================
   🚀 HARSH APEX DIGITAL SOLUTIONS - WHATSAPP AI AGENT 🚀
 ==================================================================
@@ -15,12 +16,12 @@ server.listen(config.port, () => {
   🤖 AI Model: Google Gemini (${config.geminiModel})
   📊 Web Dashboard running at: http://localhost:${config.port}
 ==================================================================
-  `);
-});
+    `);
+  });
 
-// Start WhatsApp Gateway
-whatsappClient.initialize().catch((err) => {
-  console.error('WhatsApp Gateway init error:', err);
-});
+  whatsappClient.initialize().catch((err) => {
+    console.error('WhatsApp Gateway init error:', err);
+  });
+}
 
 export default app;
