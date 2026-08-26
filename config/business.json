@@ -1,0 +1,35 @@
+{
+  "business": {
+    "name": "Harsh Apex Digital Solutions",
+    "tagline": "Empowering Businesses with Next-Gen Digital & AI Solutions",
+    "description": "Harsh Apex Digital Solutions is a premier digital agency in Sri Lanka specializing in Web Development, WhatsApp AI Automation & Chatbots, Social Media Marketing, Custom Software, and Branding.",
+    "phone": "+94 7X XXX XXXX",
+    "email": "contact@harshapex.com",
+    "website": "https://harshapex.com",
+    "address": "Colombo, Sri Lanka",
+    "openingHours": "24/7 AI Assistance (Human Support: Monday - Saturday 9:00 AM - 6:00 PM)",
+    "currency": "LKR",
+    "currencySymbol": "Rs."
+  },
+  "bankDetails": {
+    "bankName": "Commercial Bank of Ceylon",
+    "accountName": "Harsh Apex Digital Solutions",
+    "accountNumber": "1000XXXXXX",
+    "branch": "Colombo Main Branch",
+    "instructions": "Please transfer the payment and send a photo/screenshot of the bank slip or transfer receipt here on WhatsApp for automated verification."
+  },
+  "languages": {
+    "supported": ["si", "en", "ta", "singlish"],
+    "greeting": {
+      "si": "ආයුබෝවන්! Harsh Apex Digital Solutions වෙත ඔබව සාදරයෙන් පිළිගනිමු. අද ඔබට අවශ්‍ය Digital සේවාව හෝ තොරතුරු මොනවාදැයි පවසන්න? 😊",
+      "en": "Hello! Welcome to Harsh Apex Digital Solutions. How can we help scale your business with our digital and AI solutions today? 🚀",
+      "ta": "வணக்கம்! Harsh Apex Digital Solutions-க்கு வரவேற்கிறோம். இன்று உங்கள் வணிகத்திற்கான டிஜிட்டல் சேவைகளில் நாங்கள் எவ்வாறு உதவ முடியும்? ✨"
+    }
+  },
+  "salesSettings": {
+    "leadNotificationNumber": "+947XXXXXXXX",
+    "allowDirectBooking": true,
+    "requireDepositForProject": true,
+    "depositPercentage": 50
+  }
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsh Apex AI - WhatsApp Assistant Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #1e293b; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+          <i class="fa-brands fa-whatsapp text-white text-xl"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-emerald-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+            Harsh Apex AI Agent
+          </h1>
+          <p class="text-xs text-slate-400">Trilingual Sales & Support Engine</p>
+        </div>
+      </div>
+
+      <!-- Live Status Indicators -->
+      <div class="flex items-center space-x-3">
+        <div id="wa-badge" class="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span id="wa-status-text">Checking WhatsApp...</span>
+        </div>
+        <div id="ai-badge" class="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-medium">
+          <i class="fa-solid fa-brain text-cyan-400"></i>
+          <span id="ai-status-text">Gemini 2.5 Flash</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full flex flex-col md:flex-row gap-6">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-full md:w-64 flex flex-col gap-1.5">
+      <button onclick="switchTab('qr')" id="tab-btn-qr" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition bg-emerald-600/10 text-emerald-400 border border-emerald-500/20">
+        <i class="fa-solid fa-qrcode text-base"></i> WhatsApp Link (QR)
+      </button>
+      <button onclick="switchTab('chats')" id="tab-btn-chats" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition text-slate-400 hover:bg-slate-900 hover:text-slate-200">
+        <i class="fa-regular fa-comments text-base"></i> Live Chats & AI Log
+      </button>
+      <button onclick="switchTab('orders')" id="tab-btn-orders" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition text-slate-400 hover:bg-slate-900 hover:text-slate-200">
+        <i class="fa-solid fa-cart-shopping text-base"></i> Orders & Payments
+      </button>
+      <button onclick="switchTab('leads')" id="tab-btn-leads" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition text-slate-400 hover:bg-slate-900 hover:text-slate-200">
+        <i class="fa-solid fa-user-group text-base"></i> Leads & Inquiries
+      </button>
+      <button onclick="switchTab('services')" id="tab-btn-services" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition text-slate-400 hover:bg-slate-900 hover:text-slate-200">
+        <i class="fa-solid fa-briefcase text-base"></i> Services & Catalog
+      </button>
+      <button onclick="switchTab('settings')" id="tab-btn-settings" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition text-slate-400 hover:bg-slate-900 hover:text-slate-200">
+        <i class="fa-solid fa-gear text-base"></i> AI & Settings
+      </button>
+
+      <!-- Quick Info Card -->
+      <div class="mt-auto p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-400 space-y-2">
+        <div class="font-semibold text-slate-300 flex items-center gap-1.5">
+          <i class="fa-solid fa-globe text-emerald-400"></i> Trilingual AI
+        </div>
+        <p>Supports Sinhala (සිංහල), Singlish, Tamil (தமிழ்), and English effortlessly.</p>
+      </div>
+    </aside>
+
+    <!-- Main Content Panels -->
+    <main class="flex-1 min-w-0">
+
+      <!-- TAB 1: QR & WhatsApp Pairing -->
+      <section id="panel-qr" class="panel bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="max-w-xl mx-auto text-center space-y-6 py-4">
+          <div class="inline-flex p-3 rounded-2xl bg-slate-800 border border-slate-700 text-emerald-400 text-2xl">
+            <i class="fa-solid fa-link"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl font-bold text-slate-100">Connect WhatsApp</h2>
+            <p class="text-sm text-slate-400 mt-1">Scan the QR code with WhatsApp on your phone (Linked Devices) to activate the 24/7 AI agent.</p>
+          </div>
+
+          <!-- QR Code Container -->
+          <div id="qr-wrapper" class="p-6 bg-white rounded-2xl inline-block shadow-2xl mx-auto min-w-[260px] min-h-[260px] flex items-center justify-center">
+            <div id="qr-loading" class="text-slate-500 flex flex-col items-center gap-2">
+              <i class="fa-solid fa-circle-notch fa-spin text-3xl text-emerald-600"></i>
+              <span class="text-xs font-semibold">Generating QR Code...</span>
+            </div>
+            <img id="qr-image" class="hidden w-64 h-64 mx-auto rounded-lg" alt="WhatsApp QR Code" />
+          </div>
+
+          <!-- Connected State Box -->
+          <div id="connected-box" class="hidden p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300">
+            <i class="fa-solid fa-circle-check text-4xl mb-3 text-emerald-400"></i>
+            <h3 class="text-lg font-bold">WhatsApp is Active & Connected!</h3>
+            <p id="connected-phone-text" class="text-sm text-emerald-200 mt-1">Ready to receive customer messages 24/7.</p>
+          </div>
+
+          <!-- Instructions -->
+          <div class="text-left bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 space-y-2">
+            <div class="font-semibold text-slate-200">How to pair:</div>
+            <ol class="list-decimal list-inside space-y-1">
+              <li>Open <strong>WhatsApp</strong> on your phone</li>
+              <li>Tap <strong>Settings / 3 Dots</strong> &rarr; <strong>Linked Devices</strong></li>
+              <li>Tap <strong>Link a Device</strong> and point your camera at the QR code</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Live Chats & AI Log -->
+      <section id="panel-chats" class="panel hidden bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col h-[750px]">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+          <div>
+            <h2 class="text-xl font-bold text-slate-100">Live Customer Chats & AI Responses</h2>
+            <p class="text-xs text-slate-400">Real-time message feed from WhatsApp with autonomous AI replies</p>
+          </div>
+          <button onclick="loadChats()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-medium flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-arrows-rotate"></i> Refresh
+          </button>
+        </div>
+
+        <!-- Chat Stream -->
+        <div id="chat-messages" class="flex-1 overflow-y-auto custom-scrollbar py-4 space-y-3.5">
+          <!-- Messages populated by app.js -->
+        </div>
+
+        <!-- Direct Reply Box for Human Agent -->
+        <div class="pt-3 border-t border-slate-800 flex gap-2">
+          <input type="text" id="reply-phone" placeholder="Customer Phone (e.g. 94771234567)" class="w-1/3 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500" />
+          <input type="text" id="reply-text" placeholder="Type a message to send directly to this customer via WhatsApp..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500" />
+          <button onclick="sendManualMessage()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-medium flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-paper-plane"></i> Send
+          </button>
+        </div>
+      </section>
+
+      <!-- TAB 3: Orders & Payments -->
+      <section id="panel-orders" class="panel hidden bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-xl font-bold text-slate-100">Orders & Bank Slip Confirmations</h2>
+            <p class="text-xs text-slate-400">All customer bookings and automated payment verifications</p>
+          </div>
+          <button onclick="loadOrders()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-medium flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-arrows-rotate"></i> Refresh
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 bg-slate-950/40">
+                <th class="py-3 px-4 font-semibold">Order ID</th>
+                <th class="py-3 px-4 font-semibold">Customer</th>
+                <th class="py-3 px-4 font-semibold">Service</th>
+                <th class="py-3 px-4 font-semibold">Amount</th>
+                <th class="py-3 px-4 font-semibold">Status</th>
+                <th class="py-3 px-4 font-semibold">Payment</th>
+                <th class="py-3 px-4 font-semibold">Date</th>
+                <th class="py-3 px-4 font-semibold">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="orders-tbody" class="divide-y divide-slate-800/60">
+              <!-- Orders injected here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 4: Leads & Inquiries -->
+      <section id="panel-leads" class="panel hidden bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-xl font-bold text-slate-100">Leads & Inquiries (CRM)</h2>
+            <p class="text-xs text-slate-400">Potential clients captured autonomously by Harsh Apex AI</p>
+          </div>
+          <button onclick="loadLeads()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs font-medium flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-arrows-rotate"></i> Refresh
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-slate-800 text-slate-400 bg-slate-950/40">
+                <th class="py-3 px-4 font-semibold">Lead ID</th>
+                <th class="py-3 px-4 font-semibold">Client Name</th>
+                <th class="py-3 px-4 font-semibold">Phone</th>
+                <th class="py-3 px-4 font-semibold">Interest</th>
+                <th class="py-3 px-4 font-semibold">Language</th>
+                <th class="py-3 px-4 font-semibold">Notes</th>
+                <th class="py-3 px-4 font-semibold">Created</th>
+              </tr>
+            </thead>
+            <tbody id="leads-tbody" class="divide-y divide-slate-800/60">
+              <!-- Leads injected here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 5: Services & Catalog -->
+      <section id="panel-services" class="panel hidden bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h2 class="text-xl font-bold text-slate-100">Services & Pricing Catalog</h2>
+            <p class="text-xs text-slate-400">Add or edit digital solutions that the AI sells on WhatsApp</p>
+          </div>
+          <button onclick="openNewServiceModal()" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-medium flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-plus"></i> Add New Service
+          </button>
+        </div>
+
+        <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Services injected here -->
+        </div>
+      </section>
+
+      <!-- TAB 6: Settings -->
+      <section id="panel-settings" class="panel hidden bg-slate-900/80 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div>
+          <h2 class="text-xl font-bold text-slate-100">AI Configuration & Settings</h2>
+          <p class="text-xs text-slate-400">Configure your Google Gemini API Key and business preferences</p>
+        </div>
+
+        <div class="space-y-4 max-w-lg">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Google Gemini API Key</label>
+            <div class="flex gap-2">
+              <input type="password" id="gemini-key-input" placeholder="AIzaSy..." class="flex-1 bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500" />
+              <button onclick="saveApiKey()" class="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-xs font-medium transition">
+                Save Key
+              </button>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-1">Get your free API Key from <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-cyan-400 underline">Google AI Studio</a></p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs text-slate-300">
+            <div class="font-semibold text-slate-200">Active AI Model:</div>
+            <p class="text-emerald-400 font-mono">gemini-2.5-flash (Trilingual Sinhala/Tamil/English + Multimodal Vision)</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
