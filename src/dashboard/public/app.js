@@ -351,7 +351,9 @@ function escapeHtml(str) {
 
 // Start on load
 window.addEventListener('DOMContentLoaded', () => {
-  initWebSocket();
+  try {
+    initWebSocket();
+  } catch (_) {}
   loadStatus();
-  setInterval(loadStatus, 10000);
+  setInterval(loadStatus, 2000);
 });
